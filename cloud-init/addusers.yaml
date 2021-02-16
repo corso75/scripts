@@ -1,0 +1,20 @@
+#cloud-config
+
+users:
+  - default
+  - name: user1
+    gecos: Jack Smith
+#salted pass - 123456
+    passwd: $6$MopRIw4CfxgHrwKt$cP2VJSc0UPGgjy/tl/co0fsJnud5VLaSZvFhfYv3qZ7A1AYe4/BLeVeVDRjHZ/b2kL96ZmfwKAg5jr2kT9nkT0
+    groups: users, adm
+    lock-passwd: False
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+  - name: user2
+    gecos: Stephen King
+    groups: users, adm
+    lock-passwd: False
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh-authorized-keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC.....................fEeFIiSSoz
