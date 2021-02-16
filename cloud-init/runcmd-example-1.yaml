@@ -1,0 +1,24 @@
+
+runcmd:
+  - [ sed, -i, -e, '$ a\nameserver 169.254.169.254', /etc/resolv.conf ]
+  - [ /run/user/nginx.sh ]
+  - [ firewall-offline-cmd, --add-service=cockpit, --zone=public ]
+  - [ firewall-offline-cmd, --add-service=http, --zone=public ]
+  - [ systemctl, enable, firewalld ]
+  - [ systemctl, start, firewalld ]
+  - [ systemctl, status, firewalld ]
+  - [ service, sshd, restart ]
+  - [ touch, /run/user/original_grub ]
+  - echo "Created /run/user/original_grub"
+  - [ cp, -f, /etc/default/grub, /run/user/original_grub]
+  - echo "Copied /etc/default/grub to /run/user/original_grub"
+  - [ sed, -i, -e, '/GRUB_CMDLINE_LINUX/s/"/@@"/g', /run/user/original_grub ]
+  - echo "Modified in-place /run/user/original_grub with SED"
+  - [ awk, -f, /run/user/awk-add-kernel-boot-settings.txt, /run/user/original_grub ]
+  - echo "Modified /run/user/original_grub with AWK and copied into /run/user/modified_grub"
+  - [ cp, -f, /run/user/modified_grub, /etc/default/grub ]
+  - echo "Copied /run/user/modified_grub into /etc/default/grub"
+  - [ grub2-mkconfig, -o, /boot/grub2/grub.cfg ]
+  - [ systemctl, enable, serial-getty@ttyS0.service ]
+  - [ systemctl, start, serial-getty@ttyS0.service ]
+  - [ systemctl, daemon-reload ]
