@@ -1,5 +1,3 @@
-#cloud-config
-
 write_files:
 - path: /run/user/awk-add-kernel-boot-settings.txt
   permissions: '0666'
