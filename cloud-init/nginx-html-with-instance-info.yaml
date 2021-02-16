@@ -1,0 +1,21 @@
+- path: /usr/share/nginx/html/instance-info.html
+  content: |
+    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+      <head>
+        <title>Test Page for the Nginx HTTP Server on RedHat\Oracle Linux</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      </head>
+      <body>
+        <h1>Welcome to <strong>nginx</strong> on Linux!</h1>
+        <h1>The availability domain is <strong>{{ v1.availability_zone }}</strong></h1>
+        <h1>The machine OCIID is <strong>{{ v1.instance_id }}</strong></h1>
+        <h1>The machine name is <strong>{{ ds.meta_data.name }}</strong></h1>
+        <div>
+          <p>This page is used to test the proper operation of the
+          <strong>nginx</strong> HTTP server after it has been
+          installed. If you can read this page, it means that the
+          web server installed at this site is working
+          properly.</p>
+        </div>
+      </body>
+    </html>
