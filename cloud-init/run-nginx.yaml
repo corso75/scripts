@@ -1,3 +1,4 @@
+write_files:
 - path: /run/user/nginx.sh
   permissions: '0700'
   content: |
