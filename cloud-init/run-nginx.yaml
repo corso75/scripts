@@ -1,0 +1,6 @@
+- path: /run/user/nginx.sh
+  permissions: '0700'
+  content: |
+    #!/bin/sh
+    systemctl enable --now nginx
+    service nginx restart
