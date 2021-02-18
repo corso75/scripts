@@ -1,0 +1,12 @@
+yum_repos:
+  # The name of the repository
+  epel-release:
+    # This one is required!
+    # replace <version> with tha actual version which is going to be insalled
+    baseurl: https://dl.fedoraproject.org/pub/epel/epel-release-latest-<version>.noarch.rpm
+    enabled: false
+    failovermethod: priority
+    gpgcheck: true
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL
+    # replace <version> with tha actual version which is going to be insalled
+    name: Extra Packages for Enterprise Linux <version>
