@@ -3,10 +3,10 @@ yum_repos:
   epel-release:
     # This one is required!
     # replace <version> with tha actual version which is going to be insalled
-    baseurl: https://dl.fedoraproject.org/pub/epel/epel-release-latest-<version>.noarch.rpm
-    enabled: false
+    baseurl: http://download.fedoraproject.org/pub/epel/<version>/$basearch
+    enabled: true
     failovermethod: priority
     gpgcheck: true
     gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL
     # replace <version> with tha actual version which is going to be insalled
-    name: Extra Packages for Enterprise Linux <version>
+    name: Extra Packages for Enterprise Linux <version> - $basearch
