@@ -1,0 +1,12 @@
+rh_subscription:
+    username: <username>
+    password: <password>
+    activation-key: <activation key>
+    org: <org number>
+    auto-attach: <true/false>
+    service-level: <service level>
+    add-pool: <list of pool ids>
+    enable-repo: <list of yum repo ids>
+    disable-repo: <list of yum repo ids>
+    rhsm-baseurl: <url>
+    server-hostname: <hostname>
